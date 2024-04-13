@@ -46,8 +46,8 @@ class HomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(16.0),
+            const Padding(
+              padding: EdgeInsets.all(16.0),
               child: Text(
                 'Consecteturer',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
@@ -56,12 +56,12 @@ class HomePage extends StatelessWidget {
             Container(
               width: MediaQuery.of(context).size.width,
               height: 500,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.orange, // Choose your border color here
               ),
             ),
-            Padding(
-                padding: const EdgeInsets.all(16.0),
+            const Padding(
+                padding: EdgeInsets.all(16.0),
                 child: Row(
                   children: [
                     Icon(Icons.favorite_border),
@@ -69,8 +69,8 @@ class HomePage extends StatelessWidget {
                     Icon(Icons.attach_file),
                   ],
                 )),
-            Padding(
-                padding: const EdgeInsets.all(16.0),
+            const Padding(
+                padding: EdgeInsets.all(16.0),
                 child: Divider(
                   height: 1,
                   color: Colors.black54,
@@ -80,16 +80,16 @@ class HomePage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
+                  const Row(
                     children: [
                       Icon(Icons.favorite_rounded),
                       Text('Lorem Ipsum')
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
-                  Text('lorem ipsum 321 pound sterling'),
+                  const Text('lorem ipsum 321 pound sterling'),
 
                   Wrap(
                     children: [for(int a=0;a<hashtags.length;a++)
@@ -97,7 +97,7 @@ class HomePage extends StatelessWidget {
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
                           hashtags[a],
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.blue,
                             // Set the color to blue
                             fontSize: 24.0,
