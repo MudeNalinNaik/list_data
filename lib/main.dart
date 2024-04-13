@@ -1,75 +1,122 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: HomePage());
+    return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.red,
+      ),
+      home: HomePage(),
+    );
   }
 }
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
+class HomePage extends StatelessWidget {
+  List<String> hashtags = [
+    'photography',
+    'photooftheday',
+    'instagood',
+    'instadaily',
+    'picoftheday',
+    'beautiful',
+    'art',
+    'nature',
+    'travel',
+    'fashion',
+    'style',
+    'food',
+    'fitness',
+    'love',
+    'happy',
+    'smile',
+    'friends',
+    'selfie',
+    'summer',
+    'beach'
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SizedBox(
-          width: MediaQuery.of(context).size.width,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: 150,
-                width: MediaQuery.of(context).size.width,
-                child: SingleChildScrollView(
-                  child: Row(
+      body: SingleChildScrollView(
+        // Your YouTube UI content goes here
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                'Consecteturer',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: 500,
+              decoration: BoxDecoration(
+                color: Colors.orange, // Choose your border color here
+              ),
+            ),
+            Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Row(
+                  children: [
+                    Icon(Icons.favorite_border),
+                    Icon(Icons.menu),
+                    Icon(Icons.attach_file),
+                  ],
+                )),
+            Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Divider(
+                  height: 1,
+                  color: Colors.black54,
+                )),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
                     children: [
-                      for (int a = 0; a < 17; a++)
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            height: 50,
-                            width: 50,
-                            decoration: BoxDecoration(
-                              color: Colors.red,
-                              borderRadius: BorderRadius.circular(25),
-                              // Adjust the radius to make it more or less rounded
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black
-                                      .withOpacity(0.2), // Shadow color
-                                  spreadRadius: 2,
-                                  blurRadius: 7,
-                                  offset: Offset(
-                                      0, 3), // changes position of shadow
-                                ),
-                              ],
-                            ),
-                          ),
-                        )
+                      Icon(Icons.favorite_rounded),
+                      Text('Lorem Ipsum')
                     ],
                   ),
-                ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Text('lorem ipsum 321 pound sterling'),
+
+                  Wrap(
+                    children: [for(int a=0;a<hashtags.length;a++)
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          hashtags[a],
+                          style: TextStyle(
+                            color: Colors.blue,
+                            // Set the color to blue
+                            fontSize: 24.0,
+                            // Set the font size
+                            fontWeight: FontWeight.bold,
+                            // Optional: Set the font weight
+                            fontStyle:
+                                FontStyle.italic, // Optional: Set the font style
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
-              Text('Good Morning'),
-              Text('Good Morning'),
-              Text('Good Morning'),
-              Text('Good Morning'),
-              Text('Good Morning'),
-            ],
-          )),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
