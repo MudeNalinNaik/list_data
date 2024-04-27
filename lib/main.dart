@@ -1,56 +1,63 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-      ),
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: HomePage(),
     );
   }
 }
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int text = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            Container(
-              color: Colors.grey,
-              child: Center(child: Text('A')),
-              height: MediaQuery.of(context).size.height/3.2,
-              width: MediaQuery.of(context).size.width,
-            ),
-            SizedBox(height: 10,),
-            Row(
-              children: [
-                Container(
-                  color: Colors.grey,
-                  child: Center(child: Text('B')),
-                  height: MediaQuery.of(context).size.height/1.7,
-                  width: MediaQuery.of(context).size.width/1.5,
-                ),
-                SizedBox(width: 10,),
-                Container(
-                  color: Colors.grey,
-                  child: Center(child: Text('C')),
-                  height: MediaQuery.of(context).size.height/1.7,
-                  width: MediaQuery.of(context).size.width/3.35
-                ),
-              ],
-            ),
-          ],
-        ),
+      body: Column(
+        children: [
+          Container(
+            height: 200,
+            width: MediaQuery.of(context).size.width,
+            color: Colors.green,
+          ),
+          const SizedBox(height: 20),
+          // Adds space between Container and other items
+          const Text(
+            ' Item 1',
+            style: TextStyle(
+                fontSize: 20, fontWeight: FontWeight.bold, color: Colors.lime),
+          ),
+          const Text(
+            ' Item 2',
+            style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.purple),
+          ),
+          const Text(
+            ' Item 3',
+            style: TextStyle(
+                fontSize: 20, fontWeight: FontWeight.bold, color: Colors.blue),
+          ),
+// Add more widgets here as needed
+        ],
       ),
     );
   }
