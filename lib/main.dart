@@ -47,9 +47,9 @@ class _HomePageState extends State<HomePage> {
           const Text(
             ' Item 2',
             style: TextStyle(
-                fontSize: 20,
+                fontSize: 40,
                 fontWeight: FontWeight.bold,
-                color: Colors.purple),
+                color: Colors.black45),
           ),
           const Text(
             ' Item 3',
